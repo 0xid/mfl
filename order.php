@@ -23,6 +23,7 @@ if( !isset($_SESSION['login']) ){
         }else{
             header("Location: /main.php");
         }
-    }
+    }else {
     header("Location: /main.php");
+    }
 }
