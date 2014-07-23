@@ -1,5 +1,5 @@
 <?php
-ini_set("display_errors",1);
+//ini_set("display_errors",1);
 session_start();
 $sth = mysql_connect('mysql.hostinger.com.ua', 'u835029242_mfl', 'RfX7x86RLZ') or die(mysql_error());
 function CheckUser($mail,$pass){
