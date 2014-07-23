@@ -1,5 +1,5 @@
 <?php
-//ini_set("display_errors",1);
+ini_set("display_errors",1);
 session_start();
 $sth = mysql_connect('mysql.hostinger.com.ua', 'u835029242_mfl', 'RfX7x86RLZ') or die(mysql_error());
 function CheckUser($mail,$pass){
@@ -19,7 +19,7 @@ function CheckUser($mail,$pass){
 }
 function RegUser($mail,$pass,$login,$type){
     mysql_select_db('u835029242_mfl') or die('Не удалось выбрать базу данных');
-    $sql = "INSERT INTO users VALUES('','$login','$pass','$mail',$type)";
+    $sql = "INSERT INTO users VALUES('','$login','$pass','$mail',$type,'')";
     $result = mysql_query($sql) or die(mysql_error());
     return $result;
 }

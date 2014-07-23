@@ -23,7 +23,7 @@ if( isset($_POST['mail']) && isset($_POST['pass']) ){
 END;
         print $strOUT;
     }
-}elseif( isset($_POST['logout']) && $_POST['logout'] == 1 ){
+}elseif( isset($_POST['logout']) && intval($_POST['logout']) == 1 ){
     unset($_SESSION["login"]);
     unset($_SESSION["id"]);
     unset($_SESSION["type"]);

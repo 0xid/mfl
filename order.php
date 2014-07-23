@@ -5,8 +5,8 @@ if( !isset($_SESSION['login']) ){
 }else{
     if($_SESSION['type'] == 1 && isset($_POST['price']) && isset($_POST['descr'])){
         $price = $_POST['price'];
-        $dessc = $_POST['descr'];
-        $rows = AddOrder($price,$dessc);
+        $descr = $_POST['descr'];
+        $rows = AddOrder($price,$descr);
         if( $rows ){
             $strOUT = '<div class="jumbotron"><a href="#" onclick="LoadPage(\'main\');">Заказ добавлен.</a></div>';
             print $strOUT;
