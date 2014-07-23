@@ -44,7 +44,7 @@ END;
   </form>
 </div>
 END;
-        print $strOUT;
+    print $strOUT;
 }elseif( isset($_POST['login']) && isset($_POST['mail2']) && isset($_POST['pass2']) && isset($_POST['type']) ){
     $mail2 = htmlspecialchars(trim($_POST['mail2']));
     $pass2 = md5($_POST['pass2']);

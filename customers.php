@@ -1,6 +1,6 @@
 <?php
 include './lib.php';
-if( !isset($_SESSION['login']) ){
+if( !isset($_SESSION['login'])){
 $strOUT = <<<END
 <div class="jumbotron">
     <form class="form-signin" role="form" id="sign">
@@ -14,21 +14,25 @@ END;
 }else{
     $login = $_SESSION['login'];
     $type = $_SESSION['type'] == 1 ? "(Заказчик)":"(Исполнитель)";
-    $id = $_SESSION['id'];
-    $info = GetAccountUser($_SESSION['type'],$id);
-    if( $info && $_SESSION['type']==2 ){
-        $in = 'Всего заработанно:' . $info['account'] . '</br> Выполнено всего ' . $info['COUNT(o.idperform)'] . ' заказов';
-    }elseif( $info && $_SESSION['type']==1 ){
-        $in = 'Всего заказов: ' . $info['COUNT(*)'];
-    }
     $strOUT = <<<END
 <div class="jumbotron">
         <div id="user">
             <h5 style="float:left;">Здравствуйте $login $type</h5>
             <h3 align="right"><a href="#" onclick="Logout();">Выйти</a></h3>
         </div>
-            $in
-</div>
 END;
+    if(isset($_SESSION['type']) && $_SESSION['type'] == 2 ){
+        $strOUT .= '<span class="form-signin-heading alert-danger" role="alert" style="font-size:24px;">Вы не являетесь заказчиком!  Для Вас раздел закрыт.</span>';
+    }
+    
+    $strOUT .= <<<END
+    <form class="form-add" role="form" id="add">
+    <span class="form-signin-heading" style="font-size:24px;">Добавление заказа:</span>
+    <input type="price" class="form-control" placeholder="Price (Integer)" required="" autofocus="" name="price"></br>
+    <textarea class="form-control" placeholder="Order:" required="" name="order" id="descr"></textarea></br>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="AddOrder(this);">Оставить заказ</button>
+  </form>
+END;
+    $strOUT .= '</div>';
 }
 echo $strOUT;

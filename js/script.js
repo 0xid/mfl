@@ -70,3 +70,35 @@ function MenuActive(id){
     $(".active").toggleClass('active');
     $("#"+id).addClass('active');
 }
+function AddOrder(is){
+    price = $('input[name=price]').val();
+    descr = $('textarea#descr').text();
+    if( price!=='' && descr!==''){
+        $(is).attr({disabled:'disabled'});
+        $.ajax({
+            type: "POST",
+            url: "/order.php",
+            data:"price="+price+"&descr="+descr,
+            dataType: "html",
+            success: function(e){
+                $('div#cont-main').html(e);
+                $(is).removeAttr('disabled');
+            }
+        });
+    }else{alert('Заполните все поля!');}
+}
+function AcceptOrder(is,myid,idorder){
+    if( myid!=='' && idorder!==''){
+        $(is).attr({disabled:'disabled'});
+        $.ajax({
+            type: "POST",
+            url: "/order.php",
+            data:"myid="+myid+"&idorder="+idorder,
+            dataType: "html",
+            success: function(e){
+                $('div#cont-main').html(e);
+                $(is).removeAttr('disabled');
+            }
+        });
+    }else{alert('Заполните все поля!');}
+}

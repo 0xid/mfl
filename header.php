@@ -46,13 +46,13 @@ $head = <<<END
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#" onclick="LoadPage('main');MenuActive('main');">miniFreeLance</a>
+          <a class="navbar-brand" href="#" onclick="LoadPage('main');MenuActive('main');">miniFreeLance(Demo)</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li id="main" class="active"><a href="#" onclick="LoadPage('main');MenuActive('main');">Главная</a></li>
-            <li id="customers"><a href="#" onclick="LoadPage('customers');MenuActive('customers');">Заказчики</a></li>
-            <li id="performers"><a href="#" onclick="LoadPage('performers');MenuActive('performers');">Исполнители</a></li>
+            <li id="performers"><a href="#" onclick="LoadPage('lenta');MenuActive('lenta');">Лента заказов</a></li>
+            <li id="customers"><a href="#" onclick="LoadPage('customers');MenuActive('customers');">Заказчикам</a></li>
           </ul>
         </div>
       </div>
