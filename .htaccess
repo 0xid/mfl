@@ -1,4 +1,5 @@
 <ifModule mod_rewrite.c>
 RewriteEngine on
+RewriteRule ^\/?$ /index.php?ln=main
 RewriteRule ^([a-z]+)\/?$ /index.php?ln=$1
 </ifModule>
